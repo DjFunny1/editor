@@ -1,0 +1,410 @@
+body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0px;
+            background-color: #A9C9FF;
+            background-image: linear-gradient(180deg, #A9C9FF 0%, #d2fbff 100%);
+        }
+
+        .container {
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .container h1 {
+          color: #0098ea;
+          text-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .nota1 {
+            font-size: 10px;
+            color: #9c0101;
+            margin-bottom: 10px;
+        }
+
+        canvas {
+            margin-top: 20px;
+            border: 1px solid #ccc;
+        }
+
+        .controls {
+            margin: 10px 0;
+        }
+
+        .preview {
+            margin-top: 20px;
+        }
+
+        .controls-group {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            background-image: linear-gradient(to top, #e7f0fd 0%, #accbee 100%);
+            padding: 15px;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 10px 0;
+        }
+
+        .controls-group h3 {
+            font-size: 14px;
+            font-weight: bold;
+            color: #333;
+            margin: 0 0 8px 0;
+        }
+
+        .controls-group select {
+            padding: 10px 20px;
+            cursor: pointer;
+            background-color: #0098ea;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            width: 200px;
+        }
+
+        .controls-group select:hover {
+            background-color: #6166ff;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+        }
+
+        .transformations button {
+            margin: 8px;
+            padding: 10px 20px;
+            cursor: pointer;
+            background-color: #0098ea;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .transformations button:hover {
+            background-color: #6166ff;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+        }
+
+        .transformations button:active {
+            transform: scale(0.90);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+        }
+
+        .slider-container {
+            margin-top: 10px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .slider {
+            width: 200px;
+        }
+
+        button:not(.transformations button) {
+            margin: 8px;
+            padding: 10px 20px;
+            cursor: pointer;
+            background-color: #0098ea;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        button:not(.transformations button):hover {
+            background-color: #6166ff;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+        }
+        button:not(.transformations button):active {
+            transform: scale(0.90);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+        }
+
+        .text-controls {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            background-image: linear-gradient(to top, #accbee 0%, #e7f0fd 100%); 
+            padding: 15px;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 10px 0;
+        }
+
+        .text-controls label {
+            font-size: 14px;
+            font-weight: bold;
+            color: #333;
+            margin-right: 8px;
+        }
+
+        .text-controls input[type="text"] {
+            width: 150px;
+            padding: 8px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            font-size: 14px;
+            background-color: #f9f9f9;
+            transition: border-color 0.3s ease;
+        }
+
+        .text-controls input[type="text"]:focus {
+            border-color: #6200ea;
+            outline: none;
+        }
+
+        .text-controls input[type="color"] {
+            width: 40px;
+            height: 40px;
+            padding: 0;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            vertical-align: middle;
+        }
+
+        #errorMessage {
+            color: red;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+/* Botón flotante */
+.floating-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #ff4081;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  padding: 12px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  cursor: pointer;
+  z-index: 1000;
+}
+
+/* Modal */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.6);
+}
+
+.modal-content {
+  background: linear-gradient(90deg,rgba(176, 229, 255, 1) 0%, rgba(89, 143, 200, 1) 53%);
+  margin: 5% auto;
+  padding: 20px;
+  border-radius: 12px;
+  width: 80%;
+  max-width: 600px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.close-button {
+  float: right;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-top: 20px;
+  justify-content: center;
+}
+
+.gallery-item {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.gallery-item .actions {
+  position: absolute;
+  bottom: 4px;
+  left: 4px;
+  right: 4px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.gallery-item button {
+  background-color: #0098ea;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  padding: 2px 6px;
+  font-size: 4px;
+  cursor: pointer;
+}
+
+.modal h2 {
+  margin-top: 0;
+  justify-self: center;
+  color: white;
+  text-shadow: 1px 8px 12px rgba(0, 0, 0, 0.99);
+}
+
+/* Animación de entrada */
+#fade-in {
+  animation: fadeIn 1.2s ease-in forwards;
+  opacity: 0;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+header {
+  background-color: #4885ffc1;
+  width: 100%;
+  color: white;
+  padding: 10px 0;
+  text-align: center;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 10px;
+}
+
+.logo {
+  width: 100px;
+  height: auto;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+.scroll-top {
+  position: fixed;
+  bottom: 80px;
+  right: 60px;
+  background-color: #00a6ff4b;
+  color: rgba(0, 0, 0, 0.503);
+  font-size: 24px;
+  padding: 3px 8px;
+  border-radius: 5%;
+  text-decoration: none;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  z-index: 1000;
+}
+
+.scroll-top:hover {
+  background-color: #007ac1;
+  color: white;
+  transform: scale(1.1);
+}
+
+/* Pie de página */
+footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  margin-top: 1.5rem;
+  padding: 10px;
+  font-size: 0.9rem;
+  width: 100%;
+}
+
+/* Botón de modo */
+#modo-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: #0098ea;
+  color: white;
+  border: none;
+  font-size: 20px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+/* Modo oscuro */
+body.dark-mode {
+  background: linear-gradient(90deg,rgba(55, 61, 82, 1) 30%, rgba(0, 63, 117, 1) 60%);
+  color: #f0f0f0;
+}
+
+body.dark-mode header {
+    background-color: #000000;
+    color: #f0f0f0;
+}
+
+
+body.dark-mode .container {
+  background: linear-gradient(90deg,rgba(55, 61, 82, 1) 30%, rgba(0, 63, 117, 1) 60%);
+  color: #f0f0f0;
+}
+
+body.dark-mode a {
+  color: #80d0ff;
+}
+
+body.dark-mode .cta-button {
+  background-color: #ff4081;
+}
+
+body.dark-mode input,
+body.dark-mode textarea {
+  background: linear-gradient(90deg,rgba(55, 61, 82, 1) 30%, rgba(0, 63, 117, 1) 60%);
+  color: #f0f0f0;
+  border: 1px solid #555;
+}

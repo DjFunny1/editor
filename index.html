@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Editor de Imágenes</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="icon" href="favicon/LogoOficial.png" type="image/png">
+    <script src="assets/js/script.js" defer></script>
+</head>
+<body>
+<header class="fade-in">
+  <button id="modo-toggle" title="Cambiar modo">🌙</button>
+<div class="logo-container">
+  <a href="index.html">
+    <img src="assets/images/LogoOficial.png" alt="Logo Editor de Imágenes" class="logo">
+  </a>
+  <h1>Editor de Imágenes</h1>
+</div>
+  <nav>
+    <ul>
+      <li><a href="editor.html">Ir al Editor</a></li>
+      <li><a href="index.html#features">Características</a></li>
+      <li><a href="index.html#contact">Contacto</a></li>
+    </ul>
+  </nav>
+</header>
+
+  <main>
+    <section  class="fade-in" id="intro">
+      <h2>¿Qué puedes hacer aquí?</h2>
+      <p>Este editor te permite cargar imágenes, aplicar filtros, agregar texto, formas y guardar tus creaciones. ¡Explora y diviértete!</p>
+      <a href="editor.html" class="cta-button">Comenzar a Editar</a>
+    </section>
+
+    <section  class="fade-in" id="features">
+      <h2>Características</h2>
+      <ul>
+        <li>💠 Personaliza su diseño con formas creativas.</li>
+        <li>🎨 Agrega filtros a tus imágenes.</li>
+        <li>🖋️ Texto editable.</li>
+        <li>⭐ Historial de tus creaciones.</li>
+        <li>❤️ Favoritos.</li>
+        <li>📥 Descarga directa.</li>
+        <li>⚡ Y mucho más...</li>
+      </ul>
+    </section>
+
+<section id="galeria">
+  <h2>Formas más Populares!</h2>
+  <div class="slider">
+        <div class="slides">
+            <div class="slide">
+                <img src="./assets/images/circle1.png" alt="Imagen 1">
+            </div>
+            <div class="slide">
+                <img src="./assets/images/heart1.png" alt="Imagen 2">
+            </div>
+            <div class="slide">
+                <img src="./assets/images/nube1.png" alt="Imagen 3">
+            </div>
+            <div class="slide">
+                <img src="./assets/images/star1.png" alt="Imagen 4">
+            </div>
+        </div>
+    </div>
+
+</section>
+
+    <section id="contact">
+      <h2>Contacto</h2>
+      <p>¿Tienes ideas o sugerencias? ¡Contáctanos y comparte con nosotros!</p>
+
+    <form action="https://formsubmit.co/djayudax@gmail.com" method="POST">
+    <input type="text" name="name" placeholder="Tu nombre (mínimo 3 letras)" required pattern="[A-Za-z\s]{3,}">
+    <input type="email" name="email" placeholder="Tu correo (email válido)" required>
+    <textarea name="message" placeholder="Tu mensaje aquí (mínimo 10 caracteres)" required minlength="10"></textarea>
+    <button type="submit">Enviar</button>
+
+    <!-- Opcionales -->
+    <input type="hidden" name="_next" value="http://127.0.0.1:5500/gracias.html">
+    <!-- <p>implementar el input anterior como un mensaje en la pantalla y que se cierre solo y rediriga a la pantalla principal</p> -->
+    <input type="hidden" name="_captcha" value="false">
+    </form>
+
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 DjFunny - Editor de Imágenes. Todos los derechos reservados.</p>
+  </footer>
+  <a href="#" class="scroll-top" title="Volver arriba">↑</a>
+</body>
+</html>

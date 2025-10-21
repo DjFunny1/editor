@@ -1,0 +1,31 @@
+/* Modo oscuro */
+body.dark-mode {
+  background: linear-gradient(90deg,rgba(55, 61, 82, 1) 30%, rgba(0, 63, 117, 1) 60%);
+  color: #f0f0f0;
+}
+
+body.dark-mode header {
+    background-color: #000000;
+    color: #f0f0f0;
+}
+
+
+body.dark-mode .container {
+  background: linear-gradient(90deg,rgba(55, 61, 82, 1) 30%, rgba(0, 63, 117, 1) 60%);
+  color: #f0f0f0;
+}
+
+body.dark-mode a {
+  color: #80d0ff;
+}
+
+body.dark-mode .cta-button {
+  background-color: #ff4081;
+}
+
+body.dark-mode input,
+body.dark-mode textarea {
+  background: linear-gradient(90deg,rgba(55, 61, 82, 1) 30%, rgba(0, 63, 117, 1) 60%);
+  color: #f0f0f0;
+  border: 1px solid #555;
+}

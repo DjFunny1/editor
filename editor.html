@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Image Editor</title>
+    <link rel="stylesheet" href="assets/css/editor.css">
+    <link rel="icon" href="favicon/LogoOficial.png" type="image/png">
+    <script src="assets/js/editor.js" defer></script>
+</head>
+<body>
+<header>
+  <div class="logo-container">
+    <a href="index.html">
+      <img src="assets/images/LogoOficial.png" alt="Logo Editor de Imágenes" class="logo">
+    </a>
+    <h1>Editor de Imágenes</h1>
+  </div>
+  <nav>
+    <ul>
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="editor.html#fade-in">Herramientas</a></li>
+    </ul>
+  </nav>
+</header>
+<button id="modo-toggle" title="Cambiar modo">🌙</button>
+    <div class="container">
+        <h1>Herramienta para recortar o darle diseño a una imagen</h1>
+        <input type="file" id="fileInput" accept="image/*,image/gif">
+        <input type="url" id="urlInput" placeholder="Link de Imagen .png o .jpg" style="margin-top: 10px; width: 250px; border-radius: 5px;">
+        <p class="nota1">Archivos GIF's no están soportados por el momento</p>
+        <button onclick="loadImageFromUrl()">Load from URL</button>
+        <button onclick="resetImage()">Reset</button>
+
+        <div class="slider-container">
+            <label for="zoomSlider">Adjust Zoom:</label>
+            <input type="range" id="zoomSlider" class="slider" min="0" max="100" step="1" value="50" onchange="updateZoom()">
+        </div>
+
+        <div id="fade-in" class="text-controls">
+            <div class="text-input-group">
+                <label for="textInput1">Texto 1:</label>
+                <input type="text" id="textInput1" placeholder="Max 15 chars" maxlength="15" oninput="updateText()">
+                <input type="color" id="textColor1" value="#000000" onchange="updateText()">
+            </div>
+            <div class="text-input-group">
+                <label for="textInput2">Texto 2:</label>
+                <input type="text" id="textInput2" placeholder="Max 15 chars" maxlength="15" oninput="updateText()">
+                <input type="color" id="textColor2" value="#000000" onchange="updateText()">
+            </div>
+            <div class="slider-container">
+                <div>
+                    <label for="fontSizeSlider1">Tamaño Texto 1:</label>
+                    <input type="range" id="fontSizeSlider1" class="slider" min="10" max="100" step="1" value="30" onchange="updateText()">
+                </div>
+                <div>
+                    <label for="fontSizeSlider2">Tamaño Texto 2:</label>
+                    <input type="range" id="fontSizeSlider2" class="slider" min="10" max="100" step="1" value="30" onchange="updateText()">
+                </div>
+            </div>
+        </div>
+
+        <div id="fade-in" class="controls-group">
+            <div class="shapes">
+                <h3>Seleccionar Forma:</h3>
+                <select id="shapeSelect" onchange="setShape(this.value)">
+                    <option value="square">Cuadrado</option>
+                    <option value="circle">Círculo</option>
+                    <option value="triangle">Triángulo</option>
+                    <option value="heart">Corazón</option>
+                    <option value="star">Estrella</option>
+                    <option value="octagon">Octágono</option>
+                    <option value="cloud">Nube</option>
+                    <option value="musicalnote">Nota Musical</option>
+                    <option value="drop">Gota</option>
+                </select>
+            </div>
+            <div class="filters">
+                <h3>Seleccionar Filtro:</h3>
+                <select id="filterSelect" onchange="setFilter(this.value)">
+                    <option value="none">Ninguno</option>
+                    <option value="grayscale">Escala de Grises</option>
+                    <option value="sepia">Sepia</option>
+                    <option value="invert">Invertir</option>
+                    <option value="blur">Desenfocar</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="transformations">
+            <h3>Transformar Imagen:</h3>
+            <button onclick="rotateImage(90)">Rotar 90° Derecha</button>
+            <button onclick="rotateImage(-90)">Rotar 90° Izquierda</button>
+            <button onclick="flipImage('horizontal')">Voltear Horizontal</button>
+            <button onclick="flipImage('vertical')">Voltear Vertical</button>
+        </div>
+
+        <canvas id="canvas" width="450" height="450"></canvas>
+
+        <div class="preview">
+            <button onclick="saveImage()">Guardar Imagen Recortada</button>
+            <a id="downloadLink" style="display: none;">Descargar Imagen Recortada</a>
+            <p id="errorMessage" style="display: none;"></p>
+        </div>
+    </div>
+
+    <!-- Botón flotante -->
+<button id="favoritesButton" class="floating-button">⭐ Favoritos</button>
+
+<!-- Modal de historial -->
+<div id="favoritesModal" class="modal">
+    <div class="modal-content">
+    <span class="close-button">&times;</span>
+    <h2>Imágenes Guardadas</h2>
+    <div id="favoritesGallery" class="gallery"></div>
+    </div>
+</div>
+  <footer>
+    <p>&copy; 2025 DjFunny - Editor de Imágenes. Todos los derechos reservados.</p>
+  </footer>
+<a href="#" class="scroll-top" title="Volver arriba">↑</a>
+</body>
+</html>

@@ -1,0 +1,345 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-image: linear-gradient(-225deg, #d4f6ff 0%, #B9B6E5 100%);
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Encabezado */
+header {
+  background-color: #4885ffc1;
+  color: white;
+  padding: 20px 0;
+  text-align: center;
+}
+
+header h1 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* Secciones */
+main {
+  padding: 40px 20px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+#intro {
+  justify-items: center;
+  text-align: center;
+}
+
+#intro p {
+  width: 600px;
+  margin: 20px auto;
+  font-size: 1.1rem;
+}
+
+#features li {
+  font-size: 1.1rem;
+}
+
+/* #contact {
+  justify-items: center;
+} */
+
+#contact button {
+  margin-top: 10px;
+  width: 150px;
+}
+
+#contact p {
+  font-size: 1.1rem;
+  margin: 20px auto;
+}
+
+section {
+  margin-bottom: 40px;
+}
+
+section h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: #0098ea;
+}
+
+section p,
+section ul {
+  font-size: 1rem;
+}
+
+ul li {
+  margin-bottom: 8px;
+}
+
+/* Botón CTA */
+.cta-button {
+  display: inline-block;
+  margin-top: 20px;
+  background-color: #ff4081;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.cta-button:hover {
+  background-color: #e73370;
+}
+
+/* Formulario de contacto */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+form input,
+form textarea {
+  width: 500px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+form button {
+  background-color: #0098ea;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+form button:hover {
+  background-color: #007ac1;
+}
+
+/* Pie de página */
+footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  font-size: 0.9rem;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  nav ul {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  header h1 {
+    font-size: 1.5rem;
+  }
+
+  section h2 {
+    font-size: 1.2rem;
+  }
+}
+
+/* Animación de entrada */
+.fade-in {
+  animation: fadeIn 1.2s ease-in forwards;
+  opacity: 0;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+/* Transición suave al cambiar de página */
+/* a {
+  transition: all 0.3s ease;
+}
+
+a:hover {
+  transform: scale(1.05);
+}
+
+.fade-out {
+  animation: fadeOut 0.3s ease forwards;
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+  }
+} */
+
+/* Logo en encabezado */
+.logo-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 10px;
+}
+
+.logo {
+  width: 100px;
+  height: auto;
+}
+
+/* Animación para botón CTA */
+.cta-button {
+  animation: pulse 1.5s infinite;
+  transition: transform 0.3s ease;
+}
+
+.cta-button:hover {
+  transform: scale(1.05);
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 64, 129, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(255, 64, 129, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 64, 129, 0);
+  }
+}
+
+/* Slider automático */
+        #galeria {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 40px;
+        }
+        
+        .slider {
+            background-color: rgba(74, 153, 255, 0.625);
+            width: 400px;
+            height: 400px;
+            overflow: hidden;
+            position: relative;
+            border-radius: 10px;
+            box-shadow: 0 14px 28px rgba(0, 0, 0, 0.7);
+        }
+
+        .slides {
+            display: flex;
+            width: 400%;
+            height: 100%;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .slide {
+            width: 25%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .slide img {
+            width: 80%;
+            height: 80%;
+            object-fit: cover;
+        }
+
+.scroll-top {
+  position: fixed;
+  bottom: 40px;
+  right: 60px;
+  background-color: #00a6ff4b;
+  color: rgba(0, 0, 0, 0.503);
+  font-size: 24px;
+  padding: 3px 8px;
+  border-radius: 5%;
+  text-decoration: none;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  z-index: 1000;
+}
+
+.scroll-top:hover {
+  background-color: #007ac1;
+  color: white;
+  transform: scale(1.1);
+}
+
+/* Botón de modo */
+#modo-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: #0098ea;
+  color: white;
+  border: none;
+  font-size: 20px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+/* Modo oscuro */
+body.dark-mode {
+  background: linear-gradient(90deg,rgba(55, 61, 82, 1) 30%, rgba(0, 63, 117, 1) 60%);
+  color: #f0f0f0;
+}
+
+body.dark-mode header {
+    background-color: #000000;
+    color: #f0f0f0;
+}
+
+
+body.dark-mode .container {
+  background: linear-gradient(90deg,rgba(55, 61, 82, 1) 30%, rgba(0, 63, 117, 1) 60%);
+  color: #f0f0f0;
+}
+
+body.dark-mode a {
+  color: #80d0ff;
+}
+
+body.dark-mode .cta-button {
+  background-color: #ff4081;
+}
+
+body.dark-mode input,
+body.dark-mode textarea {
+  background: linear-gradient(90deg,rgba(55, 61, 82, 1) 30%, rgba(0, 63, 117, 1) 60%);
+  color: #f0f0f0;
+  border: 1px solid #555;
+}
